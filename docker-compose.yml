@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  app:
+    image: 'calculator-backend:latest'
+    build:
+      context: .
+    ports:
+      - target: 8081
+        published: 8081
+    container_name: 'app'
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/calculator
+      - SPRING_DATASOURCE_USERNAME=calculator
+      - SPRING_DATASOURCE_PASSWORD=P@ssw0rd
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  database:
+    image: 'postgres:13.1-alpine'
+    container_name: 'database'
+    environment:
+      - POSTGRES_USER=calculator
+      - POSTGRES_PASSWORD=P@ssw0rd
