@@ -52,15 +52,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return authenticationProvider;
 	}
 
-	//	@Bean
-	//	@Override
-	//	public UserDetailsService userDetailsService() {
-	//
-	//		UserDetails user = User.withDefaultPasswordEncoder().username("john.doe@gmail.com").password("Password").roles("USER").build();
-	//
-	//		return new InMemoryUserDetailsManager(user);
-	//	}
-
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 
